@@ -14,12 +14,7 @@ body {
   justify-content: flex-start;
   min-height: 100vh;
   margin: 0;
-
-  background-image: url("images/trans-BACKGROUND.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: #F8BBD0;
 }
 
 h1 {
