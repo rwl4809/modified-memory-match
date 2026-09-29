@@ -85,7 +85,7 @@ h1 {
   width: 19px;
 }
 .card .back-view img{
-  max-width: 63px;
+  max-width: 67px;
 }
 .card .back-view{
   transform: rotateY(-180deg);
