@@ -167,3 +167,16 @@ h1 {
     max-width: 35px;
   }
 }
+/* Soft glass glow when hovering over a card */
+.cards .card:hover .view {
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.95),
+    0 6px 18px rgba(130, 120, 190, 0.25);
+}
+
+/* Slight glossy tint on the card backs */
+.card .back-view {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+}
