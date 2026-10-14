@@ -23,11 +23,19 @@ h1 {
   color: #BC8F8F;
 }
 
-.container{
+.container {
   padding: 25px;
-  border-radius: 10px;
-  background: #FFF0F5;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border: 1px solid rgba(255, 255, 255, 0.65);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.8),
+    0 12px 35px rgba(100, 110, 160, 0.18);
 }
 .cards, .card, .view{
   display: flex;
