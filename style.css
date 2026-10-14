@@ -1,10 +1,12 @@
+
 /* Import Google Font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-font-family: Georgia, serif;
+  font-family: Georgia, serif;
 }
 
 body {
@@ -19,66 +21,64 @@ body {
 
 h1 {
   margin-top: 25px;
-  
+  margin-bottom: 20px;
   color: #BC8F8F;
+  text-align: center;
 }
 
 .container {
   padding: 25px;
   border-radius: 28px;
-
   background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-
   border: 1px solid rgba(255, 255, 255, 0.65);
-
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.8),
     0 12px 35px rgba(100, 110, 160, 0.18);
 }
-.cards, .card, .view{
+
+.cards,
+.card,
+.view {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .cards {
   height: 400px;
   width: 400px;
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-content: space-between;
 }
-}
-.cards .card{
+
+.cards .card {
   cursor: pointer;
   list-style: none;
   user-select: none;
   position: relative;
   perspective: 1000px;
   transform-style: preserve-3d;
-  height: calc(100% / 4 - 10px);
-  width: calc(100% / 4 - 10px);
+  height: calc(25% - 8px);
+  width: calc(25% - 8px);
 }
-.card.shake{
+
+.card.shake {
   animation: shake 0.35s ease-in-out;
 }
+
 @keyframes shake {
-  0%, 100%{
-    transform: translateX(0);
-  }
-  20%{
-    transform: translateX(-13px);
-  }
-  40%{
-    transform: translateX(13px);
-  }
-  60%{
-    transform: translateX(-8px);
-  }
-  80%{
-    transform: translateX(8px);
-  }
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-13px); }
+  40% { transform: translateX(13px); }
+  60% { transform: translateX(-8px); }
+  80% { transform: translateX(8px); }
 }
+
+/* Liquid Glass card faces */
 .card .view {
   width: 100%;
   height: 100%;
@@ -86,14 +86,13 @@ h1 {
   border-radius: 14px;
   pointer-events: none;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   overflow: hidden;
 
-  /* Frosted liquid glass */
   background: rgba(255, 255, 255, 0.42);
   backdrop-filter: blur(12px) saturate(160%);
   -webkit-backdrop-filter: blur(12px) saturate(160%);
 
-  /* Glass edge and reflective highlight */
   border: 1px solid rgba(255, 255, 255, 0.75);
   box-shadow:
     inset 0 1px 1px rgba(255, 255, 255, 0.9),
@@ -106,7 +105,7 @@ h1 {
     box-shadow 0.25s ease;
 }
 
-/* Glossy reflection across the top of each card */
+/* Glossy reflection */
 .card .view::before {
   content: "";
   position: absolute;
@@ -123,61 +122,85 @@ h1 {
   pointer-events: none;
 }
 
-/* Keep card images visible above the reflection */
+/* Keep images visible above the reflection */
 .card .view img {
   position: relative;
   z-index: 1;
 }
-}
-.card .front-view img{
+
+.card .front-view img {
   width: 19px;
 }
-.card .back-view img{
+
+.card .back-view img {
   max-width: 67px;
+  max-height: 90%;
+  object-fit: contain;
 }
-.card .back-view{
+
+.card .back-view {
   transform: rotateY(-180deg);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
 }
-.card.flip .back-view{
+
+.card.flip .back-view {
   transform: rotateY(0);
 }
-.card.flip .front-view{
+
+.card.flip .front-view {
   transform: rotateY(180deg);
 }
-@media screen and (max-width: 700px) {
-  .cards{
-    height: 350px;
-    width: 350px;
-  }
-  .card .front-view img{
-    width: 17px;
-  }
-  .card .back-view img{
-    max-width: 40px;
-  }
-}
-@media screen and (max-width: 530px) {
-  .cards{
-    height: 300px;
-    width: 300px;
-  }
-  .card .front-view img{
-    width: 15px;
-  }
-  .card .back-view img{
-    max-width: 35px;
-  }
-}
-/* Soft glass glow when hovering over a card */
+
+/* Hover effect */
 .cards .card:hover .view {
   box-shadow:
     inset 0 1px 2px rgba(255, 255, 255, 0.95),
     0 6px 18px rgba(130, 120, 190, 0.25);
 }
 
-/* Slight glossy tint on the card backs */
-.card .back-view {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(10px) saturate(160%);
-  -webkit-backdrop-filter: blur(10px) saturate(160%);
+/* Tablets */
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 18px;
+  }
+
+  .cards {
+    height: 350px;
+    width: 350px;
+  }
+
+  .card .front-view img {
+    width: 17px;
+  }
+
+  .card .back-view img {
+    max-width: 40px;
+  }
+}
+
+/* Phones */
+@media screen and (max-width: 530px) {
+  h1 {
+    font-size: 24px;
+    padding: 0 12px;
+  }
+
+  .container {
+    padding: 12px;
+  }
+
+  .cards {
+    height: 300px;
+    width: 300px;
+  }
+
+  .card .front-view img {
+    width: 15px;
+  }
+
+  .card .back-view img {
+    max-width: 35px;
+  }
 }
